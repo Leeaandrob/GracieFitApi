@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'homesite',
+    'rest_framework',
 ]
 
 AUTH_USER_MODEL = 'core.UserBase'
