@@ -15,6 +15,7 @@ router.register(r'users', views.UserViewSet)
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^auth/', views.AuthView.as_view()),
+    url(r'^register/', views.RegisterView.as_view()),
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomesiteView.as_view()),
     url(r'^api-auth/', include('rest_framework.urls',
