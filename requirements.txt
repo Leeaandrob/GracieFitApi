@@ -1,4 +1,5 @@
-Django
-psycopg2
-djangorestframework
-django-filter
+Django==1.9.3
+django-cors-headers==1.1.0
+django-filter==0.12.0
+djangorestframework==3.3.2
+psycopg2==2.6.1
