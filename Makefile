@@ -9,3 +9,6 @@ migrations: clean
 
 migrate: clean
 	python manage.py migrate
+
+superuser:
+	python manage.py createsuperuser
