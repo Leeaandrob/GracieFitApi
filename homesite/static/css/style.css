@@ -1,0 +1,492 @@
+/*
+ * Author: Carlos Alvarez
+ * URL: http://alvarez.is
+ *
+ * Project Name: Landing Sumo - Theme 8
+ * URL: http://LandingSumo.com
+ * Version: 1.0
+ */
+
+/*	################################################################
+	1. GENERAL STRUCTURES
+################################################################# */
+
+/* Import fonts */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+
+* { 
+	margin: 0;
+	padding: 0px;
+    font-family: 'Lato', sans-serif;
+} 
+body { 
+	background: #fff; 
+	margin: 0; 
+	color: #5a5a5a;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+	font-weight: 300;
+}
+
+p { 
+	padding: 0; 
+	margin-bottom: 12px; 
+    font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	font-size: 18px; 
+	line-height: 28px;
+	color: #666; 
+	margin-top: 10px; 
+}
+
+ul {
+	list-style-type: none;
+}
+
+html,
+body {
+	height: 100%;
+}
+}
+
+.inline{
+	display: inline-block;
+}
+
+.ribbon-green:before, .ribbon-green:after {
+  content: "";
+  /* Colour of the triangle. To flip the effect, use border-bottom. */
+  border-top: 3px solid #6e8900;   
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  position:absolute;
+  bottom: -5px; /* +1 to compensate for the border */
+}
+
+.ribbon-green:before {
+  left: 0px;
+}
+.ribbon-green:after {
+  right: 1px;
+}
+.alignleft { float: left; }
+.alignright { float: right; }
+.aligncenter {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	clear: both;
+}
+.centered {text-align: center}
+.container_ronis {
+	margin-left: 50px;
+	margin-right: 50px;
+}
+.mt {margin-top: 50px;}
+.mb {margin-bottom: 50px;}
+.mb2 {margin-bottom: 2px;}
+.mtb {margin-top: 30px; margin-bottom: 50px;}
+.mtb2 { margin-top: 100px; margin-bottom: 100px;}
+.ptb {padding-top: 80px; padding-bottom: 80px;}
+
+.clear {
+	clear: both;
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	width:100%;
+}
+::-moz-selection  {
+	color: #fff;
+	text-shadow:none;
+	background:#2B2E31;
+}
+::selection {
+	color: #fff;
+	text-shadow:none;
+	background:#2B2E31;
+}
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+a { 
+	padding: 0;
+	margin: 0;
+	text-decoration: none; 
+	-webkit-transition: background-color .4s linear, color .4s linear;
+	-moz-transition: background-color .4s linear, color .4s linear;
+	-o-transition: background-color .4s linear, color .4s linear;
+	-ms-transition: background-color .4s linear, color .4s linear;
+	transition: background-color .4s linear, color .4s linear;
+	color: #1abc9c;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+  color:#696E74;
+}
+
+/*HELPERS*/
+
+/*Text Green*/
+tgr {
+	color: #03C9A9;
+}
+
+/* FORM CONFIGURATION */
+
+input {
+	font-size: 18px;
+	min-height: 40px;
+	border-radius: 2px;
+	line-height: 20px;
+	padding: 11px 30px 12px;
+	border: none;
+	margin-bottom: 10px;
+	background-color: #e9f0f2;
+	-webkit-transition: background-color 0.2s;
+	transition: background-color 0.2s;
+}
+
+.subscribe-input {
+	float: left;
+	width: 70%;
+	text-align: left;
+	margin-right: 2px;
+}
+
+.subscribe-submit {
+	right: 0;
+}
+
+.btn-green {
+	background: #03C9A9;
+	color: white;
+	border-radius: 2px;
+}
+
+.btn-green:hover {
+	background: #1BBC9B;
+	color: white
+}
+
+/* BOOTSTRAP MODIFICATIONS */
+/*Collapse Panels*/
+.panel-default > .panel-heading {
+	color: #5a5a5a;
+	background-color: transparent;
+	border-color: #ddd;
+}
+
+/*Buttons Configuration */
+.btn-conf {
+	border-radius: 50px;
+	margin-right: 15px;
+	font-size: 11px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	padding: 14px 28px 13px 28px;
+	}
+
+.btn-xxlarge {
+	border-radius: 8px;
+	margin-right: 15px;
+	font-size: 15px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	padding: 10px 125px 11px 125px;
+	}
+
+.btn-green {
+	background: #03C9A9;
+	color: white
+}
+
+.btn-clear {
+	background: transparent;
+	color: #CC6600;
+	border: 2px solid white;
+}
+.btn-clear:hover {
+	background: white;
+	color: #2f2f2f;
+}
+
+.btn-clear2 {
+	background: transparent;
+	color: white;
+	border: 2px solid white;
+}
+
+.btn-clear2:hover {
+	background: white;
+	color: #CC6600;
+}
+
+/* HEADER SECTION */
+#h {
+	background: url(../img/header.jpg) no-repeat center top;
+	padding-top: 200px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 700px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#h h1 {
+	font-weight: 900;
+	color: #CC6600;
+	font-size: 90px;
+}
+
+#h h2 {
+	color: #1BA39C;
+}
+
+/* iPhone custom img settings */
+
+@media only screen and (min-width: 983px) {
+	#iphonecustom {
+		position: relative;
+		bottom: 200px;
+	}
+
+}
+
+/* custom content for download button*/
+
+/* Texto do botão, padrão */
+.headerbtn {
+	font-size: 18px; 
+	display: inline;
+}
+
+/* 2a opção d texto do botão, (mobile version) */
+.headerbtn2 {
+	font-size: 18px;
+	display: none;
+}
+
+@media only screen and (max-width: 600px) {
+	.headerbtn {
+		display: none;
+	}
+	.headerbtn2 {
+	font-size: 18px;
+	display: inline;
+	}
+}
+
+/* CALL TO ACTION SECTION */
+
+#cta {
+	padding-bottom: 15px;
+	padding-top: 15px;
+	background: #2f2f2f;
+}
+
+#cta p {
+	color: #f2f2f2;
+	font-size: 16px;
+}
+
+/* White Section */
+#w {
+	padding-bottom: 20px;
+	padding-top: 20px;
+	color: #bfbfbf
+}
+
+#w i {
+	color: #CC6600;
+	margin-left: 5px;
+	font-size: 16px;
+}
+
+/* Green Section */
+
+#g {
+	padding-bottom: 0px;
+	padding-top: 50px;
+	background: #03C9A9;
+	min-height: 500px;
+	color: white;
+}
+
+#g h1 {
+	font-size: 80px;
+	font-weight: 700;
+	text-align: center;
+}
+
+#g p {
+	color: white;
+	font-size: 16px;
+}
+
+/* Red Section */
+
+#r {
+	background: #F62459;
+	padding-bottom: 0px;
+	padding-top: 50px;
+	min-height: 500px;
+	color: white;
+}
+
+#r h1 {
+	font-size: 80px;
+	font-weight: 700;
+	text-align: center;
+}
+
+#r p {
+	color: white;
+	font-size: 16px;
+}
+
+/* Blue Section */
+
+#graciediet { 
+	background: url(../img/header2.jpg) 50% 0 fixed; 
+	height: auto;  
+	margin: 0 auto; 
+    width: 100%; 
+    position: relative; 
+    padding: 100px 0;
+}
+#b {
+	background: #19B5FE;
+	padding-bottom: 0px;
+	padding-top: 50px;
+	min-height: 300px;
+	color: white;
+}
+
+#b h1 {
+	font-size: 80px;
+	font-weight: 700;
+	text-align: center;
+}
+
+#b p {
+	color: white;
+	font-size: 16px;
+}
+
+/* PRICING TAG */
+.price-tag {
+	background: #f2f2f2;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin: 5px;
+}
+
+.price-tag h1 {
+	font-weight: 700;
+	font-size: 60px;
+}
+
+.price-tag h5, .price-tag h4 {
+	font-weight: 400;
+	letter-spacing: 1px;
+}
+
+.price-tag-green {
+	background: #03C9A9;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	color: white;	
+	margin: 5px;
+}
+
+.price-tag-green h1 {
+	font-weight: 700;
+	font-size: 60px;
+}
+
+.price-tag-green h5, .price-tag-green h4 {
+	font-weight: 400;
+	letter-spacing: 1px;
+}
+
+.price-tag-green p {
+	color: white;
+}
+
+
+/* FOOTER Section */
+
+#f {
+	min-height: 480px;
+	padding-bottom: 50px;
+	padding-top: 30px;
+	background: #282828 ;
+}
+
+#f .mtb {
+	margin-top: 82px;
+}
+
+#f h1 {
+	font-size: 65px;
+}
+
+#f h3 {
+	color: white;
+}
+
+.mytext {
+    width: 300px;
+    height:120px;
+}
+
+hr {
+	border: 1px solid #5a5a5a;
+	width:100px;
+}
+
+.mytextarea {
+	rows: 4;
+}
+
+/* COPYRIGHT */
+#copyright {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background: #010101;
+	color: #f2f2f2;
+}
+
+#copyright h4 {
+	font-weight: 700;
+}
+
+#copyright i {
+	font-size: 25px;
+	margin-right: 15px;
+}
