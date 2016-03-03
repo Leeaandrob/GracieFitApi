@@ -1,12 +1,12 @@
-
+# coding: utf-8
 from django.contrib.auth import login, logout, authenticate
-from django.http import Http404
+
 from rest_framework import viewsets, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import UserBase
-from .serializers import UserSerializers
 
+from .models import UserBase
+from .serializers import (UserSerializers, RegisterSerializer)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -15,6 +15,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class RegisterView(APIView):
+    serializer_class = RegisterSerializer
 
     def get_user(self, email):
         try:
@@ -23,28 +24,26 @@ class RegisterView(APIView):
             return None
 
     def post(self, request):
-        email = request.POST.get("email")
-        user = self.get_user(email)
+        serializer = self.serializer_class(data=request.data)
 
-        if user:
-            return Response(
-                {"message": "Email already exists"},
-                status=status.HTTP_406_NOT_ACCEPTABLE
-            )
-        else:
-            pswd = request.POST.get("password")
-            fname = request.POST.get("first_name")
-            lname = request.POST.get("last_name")
-            print(pswd, fname, lname, email)
-            new_user = UserBase.objects.create(
-                email=email, password=pswd, first_name=fname, last_name=lname
-            )
-            new_user.set_password(pswd)
-            new_user.save()
-            return Response(
-                {"message": "User Created"}, status=status.HTTP_201_CREATED
-            )
+        if serializer.is_valid(raise_exception=True):
+            email = serializer.data.get('email')
+            pswd = serializer.data.get('password')
 
+            user = self.get_user(serializer.data.get('email'))
+            if user:
+                return Response(
+                    {"message": "Email already exists"},
+                    status=status.HTTP_406_NOT_ACCEPTABLE
+                )
+            else:
+                new_user = UserBase.objects.create(
+                    email=email, password=pswd)
+                new_user.set_password(pswd)
+                new_user.save()
+                return Response(
+                    {"message": "User Created"}, status=status.HTTP_201_CREATED
+                )
 
 
 class AuthView(APIView):
