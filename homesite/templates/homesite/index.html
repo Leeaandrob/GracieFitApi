@@ -1,0 +1,191 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Fitness and Nutrition Plan for Busy People">
+    <meta name="keywords" content="graciefit, gracie diet, gracie fit app, gracie app">
+    <meta name="author" content="Ronis Gracie">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
+
+    <title>Gracie Fit</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/custom-animations.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <link href="{% static 'css/ionicons.min.css' %}" rel="stylesheet">  
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+
+    <!-- ## aditional css style to this page only ## -->
+        <style type="text/css">
+ @media only screen and (max-width: 600px) {
+    .bigbunny {
+      font-size:60px !important;
+      line-height:125% !important;
+    }
+  }
+</style> <!-- ## aditional css style to this page only ## -->
+  </head>
+
+  <body>
+	  
+	    <!--  ********** HEADER SECTION ********** -->
+		<div id="h">
+			<div class="container">
+				<div class="row mt">
+          <div class="col-md-6 centered" style="bottom: 70px;">
+  					<img src="{% static 'img/gracielogo.png' %}" class="img-responsive aligncenter" width="70%" alt="" data-effect="slide-top">
+  					<h2>A COMPLETE 30 DAY WELLNESS PLAN<br> FOR EXTREMELY BUSY PEOPLE</h2>
+            <br>
+          <a href=""><button class="btn btn-conf btn-green" name="submit"><i class="fa fa-apple"></i> <span class="headerbtn">Download for iPhone</span> <span class="headerbtn2">Download</span></button></a>
+          </div>
+          <div class="col-md-6 centered">
+            <img id="iphonecustom" src="{% static 'img/splash-mobile.png' %}" class="img-responsive aligncenter" width="60%" alt="" data-effect="slide-right">
+          </div>
+        </div><!--/row -->
+			</div><!-- /container -->
+		</div><!--/header-->
+
+	    <!--  ********** WHITE SECTION ********** -->
+		<div id="w">
+			<div class="container">
+				<div class="row centered">
+					<div class="col-md-8 col-md-offset-2">
+						<h4>WHAT'S INSIDE THE THE <b>GRACIEFIT</b> APP</h4>
+						<br/>
+						<i class="glyphicon glyphicon-chevron-down"></i>
+					</div><!--col-md-8 -->
+				</div><!--/row -->
+			</div><!--/container -->
+		</div><!--/w -->
+
+	    <!--  ********** GREEN SECTION ********** -->
+		<div id="g">
+			<div class="container">
+				<div class="row mt">
+					<div class="col-md-6 centered">
+						<img src="{% static 'img/Website_Fitness01.png' %}" class="img-responsive aligncenter" width="75%" alt="" data-effect="slide-left">
+					</div><!--/col-md-6 -->
+					
+					<div class="col-md-4">
+						<h1 class="bigbunny" data-effect="slide-right">WORKOUT</h1>
+						<p>A complete 30 day plan with full body workouts ranging from 5 to 20 minutes. No equipaments needed. You can be healthy and get in shape from anywhere you are at anytime. No excuses!</p>
+					</div><!--/col-md-4 -->
+					
+				</div><!--/row -->
+			</div><!--/container -->
+		</div><!--/G -->
+
+	    <!--  ********** CTA SECTION ********** -->		
+		<div id="cta">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 centered">
+						<h4 style="color:#A3A18E">"Learn the fundamental concepts of knowing how to eat healthy."</h4>
+					</div>
+				</div><!--/row -->
+			</div><!--/container -->
+		</div><!--/CTA -->
+		
+	    <!--  ********** RED SECTION ********** -->
+		<div id="r">
+			<div class="container">
+				<div class="row mt">
+					<div class="col-md-4 col-md-offset-2">
+						<h1 class="bigbunny" data-effect="slide-left">NUTRITION</h1>
+            <h5>based on the <strong>Gracie Diet</strong></h5>
+						<p>Use our dinamic recipe validator to check if your meal is correct. Learn how to combine your food with Gracie Diet Food Tables.</p>
+					</div><!--/col-md-4 -->
+					<div class="col-md-6 centered">
+						<img src="{% static 'img/Website_Nutrition01.png' %}" class="img-responsive aligncenter" width="80%" alt="" data-effect="slide-right">
+					</div><!--/col-md-6 -->
+				</div><!--/row -->
+			</div><!--/container -->
+		</div><!--/R -->
+
+	    <!--  ********** CTA SECTION ********** -->		
+		<div id="cta">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 centered">
+						<h4 style="color:#A3A18E">"The body achieves what the mind believes"</h4>
+					</div>
+				</div><!--/row -->
+			</div><!--/container -->
+		</div><!--/CTA -->
+
+	    <!--  ********** BLUE SECTION ********** -->
+		<section id="graciediet" data-speed="6" data-type="background">
+			<div class="container">
+      <h1 class="bigbunny centered" data-effect="slide-left">HOW THE <strong>GRACIE DIET</strong> WORKS?</h1>
+				<div class="row-fluid mt">
+					<div class="col-md-6 centered">
+						<img src="{% static 'img/Website_Mindset01.png' %}" class="img-responsive aligncenter" width="38%" alt="" data-effect="slide-left">
+					</div><!--/col-md-6 -->
+					
+					<div class="col-md-4">
+            <ul>
+              <li>
+                <i class="fa fa-check-square-o"> All You Can Eat</i>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam enim, voluptas ratione minima incidunt commodi quibusdam corporis unde pariatur quam, tempore, nobis aliquid officiis aspernatur delectus molestiae accusamus laboriosam velit.</p>
+              </li>
+              <li>
+                <i class="fa fa-check-square-o"> Groups & Combination</i>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos obcaecati ex ullam porro quo nihil natus nemo aliquam praesentium numquam iusto, ipsa placeat sed deserunt ratione. At ullam nihil ex.</p>
+                </li>
+            </ul>
+					</div><!--/col-md-4 -->
+					
+				</div><!--/row -->
+			</div><!--/container -->
+		</section><!--/section -->
+
+	    <!--  ********** FOOTER SECTION ********** -->		
+		<div id="f">
+			<div class="container">
+				<div class="row centered mtb"><h1>Workout + Nutrition</h1>
+					<div class="col-md-6 col-md-offset-3 mt" data-effect="slide-bottom">
+						<a href=""><button class="btn btn-conf btn-green" name="submit"><i class="fa fa-apple"></i> <span class="headerbtn">Download for iPhone</span> <span class="headerbtn2">Download</span></button></a>
+					</div>
+				</div><!--/row -->
+			</div><!--/container -->
+		</div><!--/F -->
+		
+		<!-- ********** COPYRIGHT ********** -->
+	    <div id="copyright">
+	      <div class="container">
+	        <div class="row">
+	          <div class="col-md-12 centered">
+	              <a href="http://www.facebook.com/graciefit"><i class="ion-social-facebook"></i></a>
+	              <a href="http://www.instagram.com/graciefit_official"><i class="ion-social-instagram"></i></a>
+	          </div>
+	        </div><!--/row-->
+	      </div><!--/container-->
+	    </div><!--/copyright-->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/retina-1.1.0.js' %}"></script>
+    <script src="{% static 'js/jquery.unveilEffects.js' %}"></script>
+    <script src="{% static 'js/init.js' %}"></script>
+  </body>
+</html>
