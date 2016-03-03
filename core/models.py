@@ -1,9 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, UserManager
+from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager,
+                                        PermissionsMixin)
 from django.utils import timezone
 
 
-class UserManagerWrapper(UserManager):
+class UserManagerWrapper(BaseUserManager):
     def create_user(self, email, password=None):
         if not email:
             raise ValueError('Users must have an email address')
@@ -22,7 +23,7 @@ class UserManagerWrapper(UserManager):
         return user
 
 
-class UserBase(AbstractBaseUser):
+class UserBase(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField("email", unique=True, db_index=True)
     first_name = models.CharField("first_name", max_length=120, null=True,
@@ -39,3 +40,11 @@ class UserBase(AbstractBaseUser):
     class Meta:
         verbose_name = "user"
         verbose_name_plural = "users"
+
+    def get_full_name(self):
+        fullname = self.email
+        return fullname
+
+    def get_short_name(self):
+        return self.first_name
+
