@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     #our apps
     'core',
     'homesite',
+    'fit_challenges',
     'api',
 
     #thirds apps
