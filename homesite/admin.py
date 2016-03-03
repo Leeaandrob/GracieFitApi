@@ -1,3 +1,7 @@
+# coding: utf-8
 from django.contrib import admin
 
-# Register your models here.
+from .models import HomeContentApp
+
+
+admin.site.register(HomeContentApp)

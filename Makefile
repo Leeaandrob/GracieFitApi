@@ -12,3 +12,6 @@ migrate: clean
 
 superuser:
 	python manage.py createsuperuser
+
+shell:
+	python manage.py shell
