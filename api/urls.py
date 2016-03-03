@@ -5,6 +5,7 @@ from rest_framework import routers
 
 from homesite.apis import HomeAppContentApiViewSet
 from core import views
+from fit_challenges.apis import (WorkoutApiViewSet, WorkoutRecipeApiViewSet)
 
 
 router = routers.DefaultRouter()
@@ -15,5 +16,7 @@ urlpatterns = [
     url(r'^register/', views.RegisterView.as_view()),
     url(r'^api-auth/', include('rest_framework.urls',
                                namespace='rest_framework')),
-    url(r'^home/', HomeAppContentApiViewSet.as_view())
+    url(r'^home/', HomeAppContentApiViewSet.as_view()),
+    url(r'^workouts', WorkoutApiViewSet.as_view()),
+    url(r'^workout_recipe/', WorkoutRecipeApiViewSet.as_view())
 ]
