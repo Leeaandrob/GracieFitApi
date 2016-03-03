@@ -11,3 +11,8 @@ class UserSerializers(serializers.HyperlinkedModelSerializer):
 class RegisterSerializer(serializers.Serializer):
     email = serializers.CharField()
     password = serializers.CharField()
+
+
+class AuthSerializer(serializers.Serializer):
+    email = serializers.CharField()
+    password = serializers.CharField()

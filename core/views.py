@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from .models import UserBase
-from .serializers import (UserSerializers, RegisterSerializer)
+from .serializers import (UserSerializers, RegisterSerializer, AuthSerializer)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -47,16 +47,20 @@ class RegisterView(APIView):
 
 
 class AuthView(APIView):
+    serializer_class = AuthSerializer
 
     def post(self, request):
-        email = request.POST.get("email")
-        pswd = request.POST.get("password")
-        user = authenticate(email=email, password=pswd)
-        if user:
-            if user.is_active:
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            email = serializer.data.get('email')
+            user = UserBase.objects.get(email=email)
+
+            if user and user.is_active:
+                user.backend = 'django.contrib.auth.backends.ModelBackend'
                 login(request, user)
                 return Response(
-                    {"message": "Loggin successful"}, status=status.HTTP_200_OK)
+                    {"message": "Loggin successful"},
+                    status=status.HTTP_200_OK)
             else:
                 return Response(
                     {"message": "User is not activated"},

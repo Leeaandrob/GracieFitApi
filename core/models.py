@@ -30,6 +30,7 @@ class UserBase(AbstractBaseUser):
     last_name = models.CharField("last_name", max_length=120, null=True,
                                  blank=True)
     date_joined = models.DateTimeField("data_joined", default=timezone.now)
+    is_staff = models.BooleanField(default=False)
 
     objects = UserManagerWrapper()
 
