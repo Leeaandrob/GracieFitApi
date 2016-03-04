@@ -49,5 +49,10 @@ class ExerciseApiViewSet(APIView):
         if serializer.is_valid(raise_exception=True):
             id = serializer.data.get('id')
             exercise = Exercise.objects.get(id=id)
-            return Response(dict(name=exercise.name), status.HTTP_200_OK)
+            return Response(dict(
+                name=exercise.name,
+                image=exercise.image.url,
+                description=exercise.description,
+                type=exercise.type,
+            ), status.HTTP_200_OK)
         return Response('fail', status.HTTP_400_BAD_REQUEST)
