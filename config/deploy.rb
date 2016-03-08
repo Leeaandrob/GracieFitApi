@@ -30,9 +30,16 @@ namespace :deploy do
 	task :upload_files do
 		top.upload("config/deploy_config/graciefit.conf", "#{deploy_to}/graciefit.conf")
 	end
+
+	task :collect_static do
+		python_path = "#{deploy_to}/bin/python"
+		run "#{python_path} #{deploy_to}/current/manage.py collectstatic --noinput --settings=graciefitapi.settings_production"
+	end
+
 	task :finalize_update do
 		#nao quero que execute isso
 	end
+
 	desc "Atualizacao e instalacao de depedencias para o projeto"
 	task :setup do
 		run "echo Setup Server"
@@ -41,8 +48,6 @@ namespace :deploy do
 		run "chmod g+w /home/webapps/#{application}/ /home/webapps/#{application}/releases /home/webapps/#{application}/shared /home/webapps/#{application}/shared/system /home/webapps/#{application}/shared/log /home/webapps/#{application}/shared/pids"
 		run "ln -s -f #{deploy_to}/shared/log/ #{deploy_to}/logs"
 
-		top.upload("config/deploy_config/ssh/id_rsa", "/home/webapps/.ssh/id_rsa")
-		top.upload("config/deploy_config/ssh/id_rsa.pub", "/home/webapps/.ssh/id_rsa.pub")
 		top.upload("config/deploy_config/graciefit.ini", "#{deploy_to}/graciefit.ini")
 		top.upload("config/deploy_config/graciefit.conf", "#{deploy_to}/graciefit.conf")
 		top.upload("config/deploy_config/graciefit_super.conf", "#{deploy_to}/graciefit_super.conf")
@@ -55,11 +60,12 @@ namespace :deploy do
 
 		run "echo Atualizando"
 		run "sudo -i add-apt-repository -y ppa:rwky/redis"
-		run "sudo apt-get -y install python-dev python2.7-dev python-virtualenv postgresql postgresql-contrib libpq-dev nginx supervisor libreadline-dev libncurses5-dev libffi-dev git redis-server"
+		run "sudo apt-get -y install python-dev python2.7-dev python-virtualenv postgresql postgresql-contrib libpq-dev nginx supervisor libreadline-dev libncurses5-dev libffi-dev git redis-server libjpeg-dev"
 
 		run "echo Configurando"
 		run "cd #{deploy_to} && virtualenv . "
 		run "mv -f #{deploy_to}/graciefit.ini #{deploy_to}/shared/"
+		run "touch #{deploy_to}/shared/log/graciefit.log"
 		run "touch #{deploy_to}/shared/log/out.log"
 		run "touch #{deploy_to}/shared/log/err.log"
 		run "touch #{deploy_to}/shared/log/celery-worker.log"
@@ -69,8 +75,8 @@ namespace :deploy do
 		run "sudo -i supervisorctl reread"
 		run "sudo -i supervisorctl update"
 		run "ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts"
-		run "#{deploy_to}/run"
-		run "#{deploy_to}/run/uwsgi.sock"
+		run "sudo -i mkdir #{deploy_to}/run"
+		run "sudo -i touch #{deploy_to}/run/uwsgi.sock"
 	end
 
 	task :restart, :roles => :app do
