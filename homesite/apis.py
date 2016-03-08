@@ -11,4 +11,5 @@ class HomeAppContentApiViewSet(APIView):
     def get(self, request):
         return Response([dict(
             image=h.image.url,
+            title=h.title,
         ) for h in HomeContentApp.objects.all()], status.HTTP_200_OK)

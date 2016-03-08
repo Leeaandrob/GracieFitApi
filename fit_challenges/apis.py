@@ -29,9 +29,11 @@ class WorkoutRecipeApiViewSet(APIView):
                 order=e.order,
                 quantity_exercises=e.quantity,
                 workout=e.workout.name,
+                workout_id=e.workout.id,
                 exercise_name=e.exercise.name,
                 exercise_type=e.exercise.type,
-                exercise_image=e.exercise.image.url,
+                exercise_images=[i.image.url
+                                 for i in e.exercise.imagexercise.all()],
                 exercise_description=e.exercise.description,
                 exercise_id=e.exercise.id,
             )
@@ -49,9 +51,15 @@ class ExerciseApiViewSet(APIView):
         if serializer.is_valid(raise_exception=True):
             id = serializer.data.get('id')
             exercise = Exercise.objects.get(id=id)
+            if exercise.imagexercise.exists():
+                return Response(dict(
+                    name=exercise.name,
+                    images=[i.image.url for i in exercise.imagexercise.all()],
+                    description=exercise.description,
+                    type=exercise.type,
+                ), status.HTTP_200_OK)
             return Response(dict(
                 name=exercise.name,
-                image=exercise.image.url,
                 description=exercise.description,
                 type=exercise.type,
             ), status.HTTP_200_OK)

@@ -1,6 +1,14 @@
 from django.contrib import admin
 
-from .models import Exercise, Workout, WorkoutRecipe
+from .models import (Exercise, Workout, WorkoutRecipe, ImageExercise)
+
+
+class ImageExerciseAdmin(admin.TabularInline):
+    model = ImageExercise
+
+
+class ExerciseAdmin(admin.ModelAdmin):
+    inlines = [ImageExerciseAdmin]
 
 
 class WorkoutRecipeAdmin(admin.ModelAdmin):
@@ -8,5 +16,6 @@ class WorkoutRecipeAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Workout)
-admin.site.register(Exercise)
+admin.site.register(Exercise, ExerciseAdmin)
 admin.site.register(WorkoutRecipe, WorkoutRecipeAdmin)
+admin.site.register(ImageExercise)

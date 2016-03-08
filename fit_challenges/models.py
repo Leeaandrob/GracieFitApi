@@ -20,7 +20,6 @@ class Exercise(models.Model):
     )
 
     name = models.CharField(max_length=255)
-    image = models.ImageField()
     description = models.TextField(null=True, blank=True)
     type = models.CharField(max_length=255, choices=CHOICES_TYPE)
 
@@ -39,3 +38,11 @@ class WorkoutRecipe(models.Model):
                                        self.exercise.name,
                                        self.quantity,
                                        self.exercise.type)
+
+
+class ImageExercise(models.Model):
+    image = models.ImageField(upload_to="fit_challenges/")
+    exercise = models.ForeignKey('Exercise', related_name="imagexercise")
+
+    def __unicode__(self):
+        return self.exercise.name
