@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'core',
     'homesite',
     'fit_challenges',
+    'graciediet',
     'api',
 
     #thirds apps
