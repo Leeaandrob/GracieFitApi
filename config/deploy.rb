@@ -25,6 +25,7 @@ set :copy_exclude, [".git", ".gitignore", "*.pyc", "**/.git", "**/*.log", "**/.p
 set :keep_releases, 3
 
 after "deploy:restart", "deploy:cleanup"
+after "deploy:restart", "deploy:collect_static"
 
 namespace :deploy do
 	task :upload_files do
@@ -34,6 +35,8 @@ namespace :deploy do
 	task :collect_static do
 		python_path = "#{deploy_to}/bin/python"
 		run "#{python_path} #{deploy_to}/current/manage.py collectstatic --noinput --settings=graciefitapi.settings_production"
+		run "sudo service nginx restart"
+		run "sudo supervisorctl restart all"
 	end
 
 	task :finalize_update do
