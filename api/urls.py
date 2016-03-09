@@ -7,7 +7,7 @@ from homesite.apis import HomeAppContentApiViewSet
 from core import views
 from fit_challenges.apis import (WorkoutApiViewSet, WorkoutRecipeApiViewSet,
                                  ExerciseApiViewSet)
-from graciediet.apis import FoodApiViewSet
+from graciediet.apis import (FoodApiViewSet, SubGroupApiviewSet)
 
 
 router = routers.DefaultRouter()
@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^workout_recipe/', WorkoutRecipeApiViewSet.as_view()),
     url(r'^exercise/', ExerciseApiViewSet.as_view()),
     url(r'^foods/', FoodApiViewSet.as_view()),
+    url(r'^subs/', SubGroupApiviewSet.as_view())
 ]

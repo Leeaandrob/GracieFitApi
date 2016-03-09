@@ -10,8 +10,10 @@ class GroupFood(models.Model):
         return self.name
 
 
-class TypeFood(models.Model):
+class SubGroup(models.Model):
     name = models.CharField(max_length=255)
+    group = models.ForeignKey('GroupFood')
+    image = models.ImageField(upload_to='graciediet/')
 
     def __unicode__(self):
         return self.name
@@ -20,7 +22,7 @@ class TypeFood(models.Model):
 class Food(models.Model):
     name = models.CharField(max_length=255)
     group_food = models.ForeignKey('GroupFood')
-    type_food = models.ForeignKey('TypeFood', null=True, blank=True)
+    sub_group = models.ForeignKey('SubGroup', null=True, blank=True)
 
     def __unicode__(self):
         return self.name
